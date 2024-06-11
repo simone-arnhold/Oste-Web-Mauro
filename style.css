@@ -1,16 +1,119 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"); */
+
+@font-face {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  src: url("resources/fonts/Segoe UI/Segoe UI.ttf");
+}
+
+:root {
+  --menu-background: #e9ecee;
+  --icon-passive: #8e9192;
+  --menu-light: #f6f8f9;
+  --highlight-select: #5382c3;
+}
 
 * {
   box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  font-family: "Segoe UI", sans-serif;
   height: 100vh;
-  overflow: hidden;
-  margin: 0;
+  overflow-x: hidden;
+}
+
+.menu-laterale {
+  width: 250px;
+  height: 800px;
+  background-color: var(--menu-background);
+  padding: 50px 0;
+}
+
+.menu-laterale-top {
+  padding: 0 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-22px {
+  width: 22px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.icon-16px {
+  width: 16px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.logo-cliente {
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  border: var(--icon-passive) dashed;
+  margin: 50px;
+}
+
+li.categoria {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16pt;
+  /* line-height: 19.2pt; */
+  cursor: pointer;
+  transition: all 100ms ease-out;
+}
+
+/* li::before {
+  content: "";
+  width: 0px;
+  height: 100%;
+  background-color: red;
+} */
+
+li.categoria img {
+  margin: 0 16px;
+}
+
+li.categoria.selected::before {
+  content: "";
+  width: 7px;
+  height: 100%;
+  background-color: var(--highlight-select);
+}
+
+li.categoria.selected {
+  color: var(--highlight-select);
+  background-color: var(--menu-light);
+}
+
+li.categoria.selected img {
+  /* for highlight color #5382c3*/
+  filter: invert(50%) sepia(52%) saturate(552%) hue-rotate(175deg)
+    brightness(88%) contrast(82%);
+  margin: 0 16px 0 9px;
+}
+
+li.categoria ul {
+  /* display: none; */
+}
+
+ul.sottocategorie {
+  padding-bottom: 26px;
+}
+
+li.sottocategoria {
+  font-weight: normal;
+  font-size: 13pt;
+  /* line-height: 15.6pt; */
+  /* padding: 26px 0 0 54px; */
+  padding-top: 26px;
+  padding-left: 54px;
 }
