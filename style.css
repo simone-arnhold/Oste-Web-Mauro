@@ -18,6 +18,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 body {
@@ -60,17 +61,6 @@ body {
   margin: 50px;
 }
 
-li.categoria {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-  font-size: 16pt;
-  /* line-height: 19.2pt; */
-  cursor: pointer;
-  transition: all 100ms ease-out;
-}
-
 /* li::before {
   content: "";
   width: 0px;
@@ -78,42 +68,75 @@ li.categoria {
   background-color: red;
 } */
 
-li.categoria img {
+li .categoria-titolo {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 16pt;
+  cursor: pointer;
+  transition: all 300ms ease-out;
+  /* z-index: 10; */
+}
+li .categoria-titolo:hover {
+  background-color: var(--menu-light);
+}
+li .categoria-titolo img {
   margin: 0 16px;
 }
-
-li.categoria.selected::before {
+li.categoria.selected .categoria-titolo::before {
   content: "";
   width: 7px;
   height: 100%;
   background-color: var(--highlight-select);
 }
-
-li.categoria.selected {
+li.categoria.selected .categoria-titolo {
   color: var(--highlight-select);
   background-color: var(--menu-light);
 }
-
-li.categoria.selected img {
-  /* for highlight color #5382c3*/
+li.categoria.selected .categoria-titolo img {
   filter: invert(50%) sepia(52%) saturate(552%) hue-rotate(175deg)
     brightness(88%) contrast(82%);
   margin: 0 16px 0 9px;
 }
 
-li.categoria ul {
-  /* display: none; */
-}
-
 ul.sottocategorie {
   padding-bottom: 26px;
+  /* display: none; */
+  max-height: 0px;
+  overflow: hidden;
+  padding-bottom: 0;
+  /* height: 0; */
+  /* visibility: hidden; */
+  /* transform: translateY(-100%); */
+  /* z-index: -1; */
+  /* overflow: hidden; */
+}
+ul.sottocategorie.expanded {
+  /* display: block; */
+  max-height: 200px;
+  padding-bottom: 26px;
+  /* height: auto; */
+  /* visibility: visible; */
+  /* transform: translateY(0);
+  transition: transform 300ms ease; */
+  transition: all 300ms ease-in;
 }
 
 li.sottocategoria {
   font-weight: normal;
   font-size: 13pt;
-  /* line-height: 15.6pt; */
-  /* padding: 26px 0 0 54px; */
-  padding-top: 26px;
+  /* margin-top: 26px; */
+  padding: 13px 0 13px 0;
+
   padding-left: 54px;
+  cursor: pointer;
+  transition: background-color 200ms ease-in;
 }
+
+li.sottocategoria:hover {
+  background-color: var(--menu-light);
+  /* color: white; */
+}
+
+/* fix https://stackoverflow.com/questions/3508605/how-can-i-transition-height-0-to-height-auto-using-css */
