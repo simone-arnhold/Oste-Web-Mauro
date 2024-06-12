@@ -10,6 +10,8 @@
   --icon-passive: #8e9192;
   --menu-light: #f6f8f9;
   --highlight-select: #5382c3;
+  --scrollbar-base: #e0e5e3;
+  --scrollbar-thumb: #899695;
 }
 
 * {
@@ -24,14 +26,38 @@
 body {
   font-family: "Segoe UI", sans-serif;
   height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
 }
+
+/* custom scrollbar */
+.menu-laterale {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-base);
+  scrollbar-width: thin;
+}
+
+.menu-laterale::-webkit-scrollbar {
+  width: 7px;
+}
+.menu-laterale::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-base);
+  border-radius: 100px;
+}
+
+.menu-laterale::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 100px;
+}
+
+.menu-laterale::-webkit-scrollbar-button {
+}
+/* custom scrollbar end*/
 
 .menu-laterale {
   width: 250px;
-  height: 800px;
+  height: 100vh;
   background-color: var(--menu-background);
   padding: 50px 0;
+  overflow-y: auto;
 }
 
 .menu-laterale-top {
@@ -114,7 +140,7 @@ ul.sottocategorie {
 }
 ul.sottocategorie.expanded {
   /* display: block; */
-  max-height: 200px;
+  max-height: 500px;
   padding-bottom: 26px;
   /* height: auto; */
   /* visibility: visible; */
