@@ -6,20 +6,25 @@
 }
 
 :root {
-  --menu-background: #d4d6d5;
+  --menu-background: #d4dcda;
   --icon-passive: #8e9192;
-  --menu-light: #e9e9e8;
-  --highlight-select: #5382c3;
+  --menu-light: #ebeeed;
+  --highlight-select: #6d7172;
+  --highlight-btn: #4588c9;
   --scrollbar-base: #e0e5e3;
   --scrollbar-thumb: #899695;
-  --dashboard-background: #e9e9e8;
+  --dashboard-background: #ebeeed;
   --main-icon-color: #45484a;
   --dashboard-icon-color: #6d7172;
   --dashboard-line-color: #c2c4c4;
-  --graph1: #156bb5;
-  --graph2: #4cb848;
-  --graph3: #f26432;
-  --graph4: #77c258;
+
+  --graph1: #657273;
+  --graph2: #ff9534;
+  --graph3: #ff602f;
+  --graph4: #4cb848;
+  --graph5: #4588c9;
+  --graph6: #156bb5;
+  --graph7: #77c258;
 }
 
 * {
@@ -34,7 +39,7 @@
 body {
   font-family: "Segoe UI", sans-serif;
   height: 100vh;
-  /* overflow: hidden; */
+  /* overflow-x: hidden; */
   display: flex;
 }
 
@@ -51,6 +56,7 @@ div {
   flex-basis: 250px;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-base);
   scrollbar-width: thin;
+  /* flex: 10; */
 }
 
 .menu-laterale::-webkit-scrollbar {
@@ -100,7 +106,7 @@ div {
 .logo-cliente {
   width: 120px;
   height: 120px;
-  background-color: white;
+  background-color: #fff;
   border: var(--icon-passive) dashed;
   margin: 50px;
 }
@@ -135,12 +141,13 @@ li.categoria.selected .categoria-titolo::before {
   background-color: var(--highlight-select);
 }
 li.categoria.selected .categoria-titolo {
-  color: var(--highlight-select);
+  /* color: var(--highlight-select); */
   background-color: var(--menu-light);
 }
 li.categoria.selected .categoria-titolo img {
-  filter: invert(50%) sepia(52%) saturate(552%) hue-rotate(175deg)
-    brightness(88%) contrast(82%);
+  /* filter: invert(50%) sepia(52%) saturate(552%) hue-rotate(175deg)
+    brightness(88%) contrast(82%); */
+
   margin: 0 16px 0 9px;
 }
 
@@ -148,6 +155,7 @@ ul.sottocategorie {
   padding-bottom: 26px;
   /* display: none; */
   max-height: 0px;
+  /* margin-top: -100%; */
   overflow: hidden;
   padding-bottom: 0;
   /* height: 0; */
@@ -158,13 +166,14 @@ ul.sottocategorie {
 }
 ul.sottocategorie.expanded {
   /* display: block; */
-  max-height: 500px;
+  /* margin-top: 0; */
+  max-height: 2000px;
   padding-bottom: 26px;
   /* height: auto; */
   /* visibility: visible; */
   /* transform: translateY(0);
   transition: transform 300ms ease; */
-  transition: all 300ms ease-in;
+  transition: all 600ms ease-in;
 }
 
 li.sottocategoria {
@@ -186,21 +195,72 @@ li.sottocategoria:hover {
 /* main dashboard start */
 .main {
   background: var(--dashboard-background);
-  width: calc(100% - 250px);
+  /* width: calc(100% - 250px); */
+  /* flex-basis: 100%;
+  flex: 0; */
   height: 100%;
 }
 
+/* top header start */
 .dashboard-header {
-  height: 75px;
-  width: 100%;
-  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  /* width: 100%; */
+  margin: 40px 30px 0 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--highlight-select);
+  color: var(--highlight-select);
 }
+
+.profilo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  height: 28px;
+}
+
+.contenitore-icona-profilo {
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--highlight-select);
+}
+
+.nome-profilo {
+  display: inline;
+}
+
+select.menu-attivita {
+  background-color: var(--menu-background);
+  color: var(--highlight-select);
+  padding: 0px 10px 0 60px !important;
+  font-size: 16px;
+  border: none;
+  border: 1px solid var(--secondary);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0;
+  height: 28px;
+  font-size: inherit;
+}
+/* https://www.w3schools.com/howto/howto_custom_select.asp */
+.exit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 28px;
+}
+
+/* top header end */
 
 .sezioni {
   margin: 72px 30px 0px 30px;
   display: grid;
   gap: 13px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 314px);
 }
 
 .sezione {
@@ -208,17 +268,63 @@ li.sottocategoria:hover {
   width: 100%;
   height: 93px;
   border-radius: 15px;
+  cursor: pointer;
+}
+
+.sezione-label {
+  width: 100%;
+  padding-top: 23px;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  /* justify-content: center; */
+}
+
+.sezione-label img {
+  padding-left: 15px;
+  width: 60px;
+  max-height: 36px;
+  filter: invert(48%) sepia(6%) saturate(234%) hue-rotate(145deg)
+    brightness(88%) contrast(85%);
+}
+
+.sezione-label span {
+  padding-right: 25px;
+  font-size: 21pt;
+  color: var(--highlight-select);
+}
+
+.apri-btn {
+  float: right;
+  padding-right: 25px;
+  /* position: relative;
+  left: 10px; */
+  color: var(--highlight-btn);
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+.apri-btn img {
+  display: inline;
+  filter: invert(54%) sepia(38%) saturate(864%) hue-rotate(170deg)
+    brightness(84%) contrast(84%);
+  width: 28px;
 }
 
 .container-widget {
   display: grid;
-  gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr;
+  gap: 13px;
+  /* grid-template-columns: minmax(314px, auto) 1fr 1fr 1fr; */
+  grid-template-columns: repeat(3, 314px);
   margin: 72px 30px 0px 30px;
 }
 
 .widget {
   background-color: #fff;
+  width: 314px;
   height: 260px;
   border: 1pt solid var(--dashboard-line-color);
 }
@@ -227,20 +333,33 @@ li.sottocategoria:hover {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 6px;
-  align-items: center;
+  gap: 8px;
   width: 100%;
   height: 28px;
-  border: 1pt solid var(--dashboard-line-color);
+  border-bottom: 1pt solid var(--dashboard-line-color);
   color: var(--dashboard-icon-color);
   font-size: 13pt;
   padding-left: 6px;
   padding-right: 6px;
+  /* position: absolute;
+  left: 17px; */
   /* font-weight: 400; */
 }
 
 .widget-label img {
-  height: 10px;
+  width: 10px;
+  height: 12px;
+  margin-top: 3px;
+}
+
+.widget-text {
+  position: absolute;
+  padding-left: 20px;
+  /* left: 17px; */
+}
+
+.widget-label img {
+  cursor: pointer;
 }
 
 .widget-label img.icon-endpoint {

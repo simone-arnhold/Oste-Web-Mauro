@@ -38,7 +38,7 @@
 
                 </li>
                 <!-- <div class="padding" style="padding-top: 60px; background: lightblue"></div> -->
-                <!-- <li class="categoria selected">
+                <!-- <li class="categoria optioned">
                     <div class="categoria-titolo"><img src="resources/icons/1 - dashboard.svg" alt=""
                         class="icon-22px">Dashboard
                 </li>
@@ -96,32 +96,118 @@
 
     <div class="main">
         <div class="dashboard-header">
+            <div class="profilo">
+                <div class="contenitore-icona-profilo">
+                    <img src="" alt="">
+                </div>
+                <span class="nome-profilo">Andrea</span>
+            </div>
+
+            <div class="contenitore-menu-attivita">Seleziona la tua attività
+                <select class="menu-attivita">
+                    <option value="0" class="menu-attivita-contenuto">Nome Attività 1</option>
+                    <option value="1" class="menu-attivita-contenuto">Nome Attività 2</option>
+                    <option value="2" class="menu-attivita-contenuto">Nome Attività 3</option>
+                    <option value="3" class="menu-attivita-contenuto">Nome Attività 4</option>
+                </select>
+            </div>
+            <div class="exit">
+                <span>Esci</span>
+                <img src="resources/icons/20 - exit.svg" class="icon-22px" alt="">
+            </div>
 
         </div>
-        <hr>
+        <!-- <hr> -->
 
         <div class="sezioni">
+            <div class="sezione" id="sezione-personale">
+                <label for="sezione-personale" class="sezione-label">
+                    <img src="resources/icons/2 - personale.svg" alt="">
+                    <span class="sezione-text">Personale</span>
+                </label>
+                <div class="apri-btn">APRI <img src="resources/icons/19 - arrow.svg" alt=""></div>
+            </div>
+            <div class="sezione" id="sezione-food-cost">
+                <label for="sezione-food-cost" class="sezione-label">
+                    <img src="resources/icons/3 - food cost.svg" alt="">
+                    <span class="sezione-text">Food Cost</span>
+                </label>
+                <div class="apri-btn">APRI <img src="resources/icons/19 - arrow.svg" alt=""></div>
+            </div>
+            <div class="sezione" id="sezione-preventivi">
+                <label for="sezione-preventivi" class="sezione-label">
+                    <img src="resources/icons/4 - preventivi.svg" alt="">
+                    <span class="sezione-text">Preventivi</span>
+                </label>
+                <div class="apri-btn">APRI <img src="resources/icons/19 - arrow.svg" alt=""></div>
+            </div>
+            <div class="sezione" id="sezione-eventi">
+                <label for="sezione-eventi" class="sezione-label">
+                    <img src="resources/icons/5 - eventi.svg" alt="">
+                    <span class="sezione-text">Preventivi</span>
+                </label>
+                <div class="apri-btn">APRI <img src="resources/icons/19 - arrow.svg" alt=""></div>
+            </div>
+            <div class="sezione" id="sezione-crm">
+                <label for="sezione-crm" class="sezione-label">
+                    <img src="resources/icons/6 - crm.svg" alt="">
+                    <span class="sezione-text">CRM</span>
+                </label>
+                <div class="apri-btn">APRI <img src="resources/icons/19 - arrow.svg" alt=""></div>
+            </div>
+            <div class="sezione" id="sezione-prenotazioni">
+                <label for="sezione-prenotazioni" class="sezione-label">
+                    <img src="resources/icons/7 - prenotazioni.svg" alt="">
+                    <span class="sezione-text">Prenotazioni</span>
+                </label>
+                <div class="apri-btn">APRI <img src="resources/icons/19 - arrow.svg" alt=""></div>
+            </div>
+            <!-- <div class="sezione"></div>
             <div class="sezione"></div>
             <div class="sezione"></div>
             <div class="sezione"></div>
-            <div class="sezione"></div>
-            <div class="sezione"></div>
-            <div class="sezione"></div>
+            <div class="sezione"></div> -->
         </div>
 
         <div class="container-widget">
-            <div class="widget" id="widget1">
-                <label for="widget1" class="widget-label">
-                    <img src="resources/icons/9 - bell.svg" alt="">Attività
+            <div class="widget" id="widget-attività">
+                <label for="widget-attività" class="widget-label">
+                    <img src="resources/icons/9 - bell.svg" alt="">
+                    <span class="widget-text">Attività</span>
                     <img src="resources/icons/10 - refresh.svg" class="icon-endpoint" alt="">
                 </label>
 
             </div>
-            <div class="widget"></div>
-            <div class="widget"></div>
-            <div class="widget"></div>
-            <div class="widget"></div>
-            <div class="widget"></div>
+            <div class="widget" id="widget-fatturato-annuo">
+                <label for="widget-fatturato-annuo" class="widget-label">
+                    <span class="widget-text">Fatturato Annuo</span>
+                    <!-- <img src="resources/icons/10 - refresh.svg" class="icon-endpoint" alt=""> -->
+                </label>
+            </div>
+            <div class="widget" id="widget-fatturato-mensile">
+                <label for="widget-fatturato-mensile" class="widget-label">
+                    <span class="widget-text">Fatturato Mensile</span>
+                    <!-- <img src="resources/icons/10 - refresh.svg" class="icon-endpoint" alt=""> -->
+                </label>
+            </div>
+            <div class="widget" id="widget-classifica-dipendenti">
+                <label for="widget-classifica-dipendenti" class="widget-label">
+                    <span class="widget-text">Classifica Dipendenti</span>
+                    <!-- <img src="resources/icons/10 - refresh.svg" class="icon-endpoint" alt=""> -->
+                </label>
+            </div>
+            <div class="widget" id="widget-gestione-personale">
+                <label for="widget-gestione-personale" class="widget-label">
+                    <span class="widget-text">Gestione del Personale</span>
+                    <!-- <img src="resources/icons/10 - refresh.svg" class="icon-endpoint" alt=""> -->
+                </label>
+            </div>
+            <div class="widget" id="widget-gestione-magazzino">
+                <label for="widget-gestione-magazzino" class="widget-label">
+                    <span class="widget-text">Gestione Magazzino</span>
+                    <!-- <img src="resources/icons/10 - refresh.svg" class="icon-endpoint" alt=""> -->
+                </label>
+            </div>
         </div>
     </div>
 
